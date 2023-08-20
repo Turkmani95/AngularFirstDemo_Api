@@ -70,6 +70,7 @@ namespace FullStackApi.Controllers
             }
              _fullStackDBContext.Employees.Remove(emp);
             await _fullStackDBContext.SaveChangesAsync();
+            //Test
             return Ok(emp);
         }
 
