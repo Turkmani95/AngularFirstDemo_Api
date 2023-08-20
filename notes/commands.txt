@@ -1,0 +1,84 @@
+-command for new project : 
+ng new FullstackUI ( do not use . or _ in naming ) 
+
+-open visual studio code form cmd when cd : 
+code .
+
+- edit the first page : 
+delete every thing except the router outlet tag in the bottom 
+
+-add bootstrap : 
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+ 
+
+-run the project from the terminal in vs code : 
+npm run ng serve --o
+
+adding rotuing to angular : 
+inside app-routing.modules.ts there is a counstant routes we add inside it the page we are trying to go to 
+
+-disable page refresh when go on link : 
+routerlink="employees" instead of href
+
+-when update database there is an error A connection was successfully established with the server, but then an error occurred during the login process. (provider: SSL Provider, error: 0 - The certificate chain was issued by an authority that is not trusted.) : 
+add this to connectionstring TrustServerCertificate=True;
+the connection string will be : 
+    "FullStackConnectionString": "server=KOMANDO;database=FullStackDb;Trusted_Connection=true;TrustServerCertificate=True"
+
+
+-format text in visual studio 2022 : 
+ctrl k + ctrl f 
+
+
+-for making the new service file inside certain folder instead of app folder :
+npm run ng g s Services/employees
+
+-generate the enviroments it should be in the src folder ng g environments:
+ng g environments
+
+-make cors origin enabled in program.cs after app.UseHttpsRedirection();
+:
+app.UseCors(policy =>policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+
+
+-adding form for angular : 
+adding to import in app.modules.ts FormModule
+
+ngForm (onSubmit) add the action 
+
+in each input add name and ngmodule
+
+and we add in service the post call for api and subscribe for it in the compnent 
+
+-adding router after posting : 
+inject it in the constructer and call this in the next : 
+        this.router.navigate(['employees']);
+
+
+-when adding new compnent :
+we add first the routing 
+
+- add a router link with many parameters : 
+ <td><a [routerLink]="['/employees','edit',employee.id]">View</a></td>
+
+you have to insert the / because it will make it a one level down 
+
+- ArgumentOutOfRangeException: Count cannot be less than zero. (Parameter 'count') when adding an api with guid 
+ [Route("{id:Guid}")]
+
+- to push your project to git :
+first log in to your repo .
+create a new repo 
+then go to file explorer for the porject folder cmd 
+then paste the following : 
+echo "# AngularFirstDemo" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Turkmani95/AngularFirstDemo.git
+git push -u origin main
+
+- adding the .net app to source code : 
+click on add to source control in the bottom 
